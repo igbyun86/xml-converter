@@ -16,6 +16,7 @@ public class ApplicationData {
 
     @XmlField(name = "공통메타데이터")
     CommonMetaData commonMetaData;
+    @XmlField(name = "전자증명서메타데이터")
     List<ElecDocumentMetaData> elecDocumentMetaDataList;
 
 

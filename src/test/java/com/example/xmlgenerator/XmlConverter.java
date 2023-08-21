@@ -1,12 +1,13 @@
 package com.example.xmlgenerator;
 
+import com.example.xmlgenerator.code.JuminRegistrationCopyCode;
 import com.example.xmlgenerator.vo.ApplicationData;
+import com.example.xmlgenerator.vo.JuminRegistrationCopy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDateTime;
-import java.util.Arrays;
 import java.util.List;
 
 @SpringBootTest
@@ -29,6 +30,15 @@ public class XmlConverter {
                                 )
                         )
                         .build())
+                .elecDocumentMetaDataList(
+                        List.of(
+                                JuminRegistrationCopy.builder()
+                                        .addressChange(JuminRegistrationCopyCode.AddressChangeCode.NOT_INCLUDED)
+                                        .generationCompositionReason("01")
+                                        .generationCompositionDate("01")
+                                        .build()
+                        )
+                )
                 .build();
     }
 
