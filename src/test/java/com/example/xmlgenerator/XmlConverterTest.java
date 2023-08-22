@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @SpringBootTest
-public class XmlConverter {
+public class XmlConverterTest {
 
     @Test
     @DisplayName("신청데이터생성")
@@ -33,13 +33,26 @@ public class XmlConverter {
                 .elecDocumentMetaDataList(
                         List.of(
                                 JuminRegistrationCopy.builder()
-                                        .addressChange(JuminRegistrationCopyCode.AddressChangeCode.NOT_INCLUDED)
-                                        .generationCompositionReason("01")
-                                        .generationCompositionDate("01")
+                                        .request(JuminRegistrationCopy.Request.builder()
+                                                .addressChange(JuminRegistrationCopyCode.AddressChangeCode.NOT_INCLUDED)
+                                                .generationCompositionReason("01")
+                                                .generationCompositionDate("01")
+                                                .build())
+                                        .foreignerCode("101")
+                                        .district(JuminRegistrationCopy.District.builder()
+                                                .sidoNm("서울특별시")
+                                                .siggNm("중랑구")
+                                                .siggCode("30600003060114중랑구")
+                                                .build())
                                         .build()
                         )
                 )
                 .build();
+    }
+
+    @Test
+    void objectToXmlConverterTest() {
+
     }
 
 }
