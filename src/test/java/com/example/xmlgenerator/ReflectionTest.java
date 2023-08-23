@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.annotation.Order;
 import org.springframework.util.ObjectUtils;
-import org.springframework.util.ReflectionUtils;
 
 import java.lang.reflect.Field;
 import java.time.LocalDateTime;
@@ -120,7 +119,7 @@ public class ReflectionTest {
                 recursiveReflection(field.get(requestObject), level);
             }
 
-            if (XmlField.Type.List == xmlFieldAnnotation.type()) {
+            if (XmlField.Type.Array == xmlFieldAnnotation.type()) {
                 System.out.printf("%s name = %s", levelBlank(level), xmlFieldAnnotation.name());
                 System.out.println();
                 List list = (List) field.get(requestObject);
